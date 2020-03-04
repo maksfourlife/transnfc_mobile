@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<MasterDetailPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="transnfc_v4.View.Master"
+             xmlns:UIElements="clr-namespace:transnfc_v4.UIElements">
+    <MasterDetailPage.Master>
+        <ContentPage Title="Панель навигации">
+            <ContentPage.Content>
+                <StackLayout>
+                    <StackLayout>
+                        <Grid Style="{StaticResource HeaderGrid}">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width=".2*"/>
+                                <ColumnDefinition Width=".8*"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height=".6*"/>
+                                <RowDefinition Height=".4*"/>
+                            </Grid.RowDefinitions>
+                            <Frame Style="{StaticResource HeaderIconFrame}"
+                                   Grid.Row="0"
+                                   Grid.Column="0"
+                                   Grid.RowSpan="2">
+                                <Image Style="{StaticResource HeaderIconInner}"/>
+                            </Frame>
+                            <Label Style="{StaticResource HeaderNameLabel}"
+                                   Text="Квертиев Кверти"
+                                   Grid.Column="1"
+                                   Grid.Row="0"/>
+                            <Label Style="{StaticResource HeaderMailLabel}"
+                                   Text="qwerty@qwerty.com"
+                                   Grid.Column="1"
+                                   Grid.Row="1"/>
+                        </Grid>
+                        <UIElements:Button Style="{StaticResource TabButton}"
+                                           Text="Оплата"/>
+                        <UIElements:Button Style="{StaticResource TabButton}"
+                                           Text="Пополнение баланса"/>
+                        <!--<UIElements:Button Style="{StaticResource TabButton}"
+                                           Text="История оплаты"/>-->
+                        <UIElements:Button Style="{StaticResource TabButton}"
+                                           Text="Настройки"/>
+                    </StackLayout>
+                    <StackLayout VerticalOptions="FillAndExpand"/>
+                    <StackLayout>
+                        <UIElements:Button Style="{StaticResource TabButton}"
+                                           Text="Обратная связь"/>
+                        <UIElements:Button Style="{StaticResource TabButton}"
+                                           Text="Выход"/>
+                    </StackLayout>
+                </StackLayout>
+            </ContentPage.Content>
+        </ContentPage>
+    </MasterDetailPage.Master>
+</MasterDetailPage>

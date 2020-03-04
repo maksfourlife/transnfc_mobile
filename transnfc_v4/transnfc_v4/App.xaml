@@ -1,0 +1,258 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="transnfc_v4.App"
+             xmlns:yummy="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+             xmlns:UIElements="clr-namespace:transnfc_v4.UIElements">
+    <Application.Resources>
+        <ResourceDictionary>
+
+            <Color x:Key="blue0">#277db6</Color>
+            <Color x:Key="blue1">#193058</Color>
+            <Color x:Key="grey0">#6d6d6d</Color>
+            <Color x:Key="grey1">#f4f4f4</Color>
+            
+            <x:Double x:Key="font_size0">10</x:Double>
+            <x:Double x:Key="font_size1">14</x:Double>
+            <x:Double x:Key="font_size2">16</x:Double>
+            <x:Double x:Key="font_size3">19</x:Double>
+            <x:Double x:Key="font_size4">22</x:Double>
+            <x:Double x:Key="font_size5">30</x:Double>
+
+            <x:Double x:Key="width_request">300</x:Double>
+            <x:Double x:Key="header_icon_size">100</x:Double>
+
+            <x:String x:Key="Roboto-Regular">Roboto-Regular.ttf#Roboto-Regular</x:String>
+            <x:String x:Key="Roboto-Bold">Roboto-Bold.ttf#Roboto-Bold</x:String>
+
+            <Style TargetType="StackLayout">
+                <Setter Property="Spacing" Value="0"/>
+            </Style>
+            
+            <Style TargetType="Page" ApplyToDerivedTypes="True">
+                <Setter Property="BackgroundColor" Value="{StaticResource grey1}"/>
+            </Style>
+            
+            <Style TargetType="Image" x:Key="ImageBigLogo">
+                <Setter Property="Margin" Value="0,100,0,120"/>
+                <Setter Property="Scale" Value="0.6"/>
+                <Setter Property="Source" Value="logo.png"/>
+            </Style>
+            
+            <Style TargetType="Entry">
+                <Setter Property="WidthRequest" Value="{StaticResource width_request}"/>
+                <Setter Property="HorizontalOptions" Value="Center"/>
+                <Setter Property="PlaceholderColor" Value="{StaticResource grey0}"/>
+                <Setter Property="FontSize" Value="{StaticResource font_size2}"/>
+                <Setter Property="FontAttributes" Value="Bold"/>
+                <Setter Property="FontFamily" Value="Calibri"/>
+                <Setter Property="Margin" Value="0,-3,0,7"/>
+            </Style>
+            
+            <Style TargetType="Label" x:Key="UnderEntryLabel">
+                <Setter Property="TextColor" Value="{StaticResource blue0}"/>
+                <Setter Property="WidthRequest" Value="{StaticResource width_request}"/>
+                <Setter Property="HorizontalOptions" Value="Center"/>
+                <Setter Property="HorizontalTextAlignment" Value="Start"/>
+                <Setter Property="Margin" Value="0,-15,0,0"/>
+                <Setter Property="FontAttributes" Value="Bold"/>
+                <Setter Property="FontFamily" Value="Calibri"/>
+                <Setter Property="FontSize" Value="{StaticResource font_size1}"/>
+            </Style>
+            
+            <Style TargetType="yummy:PancakeView" x:Key="ElevatingButton">
+                <Setter Property="HasShadow" Value="True"/>
+                <Setter Property="IsClippedToBounds" Value="True"/>
+                <Setter Property="WidthRequest" Value="{StaticResource width_request}"/>
+                <Setter Property="HeightRequest" Value="50"/>
+                <Setter Property="HorizontalOptions" Value="Center"/>
+                <Setter Property="Margin" Value="0,40,0,0"/>
+                <Setter Property="BackgroundColor" Value="Transparent"/>
+                <Setter Property="CornerRadius" Value="10"/>
+                <Setter Property="Elevation" Value="15"/>
+            </Style>
+            
+            <Style TargetType="Button" x:Key="ElevatingButtonInner">
+                <Setter Property="BackgroundColor" Value="{StaticResource blue0}"/>
+                <Setter Property="TextColor" Value="White"/>
+            </Style>
+            
+            <Style TargetType="Label" x:Key="UnderButtonLabel">
+                <Setter Property="TextColor" Value="{StaticResource blue0}"/>
+                <Setter Property="FontSize" Value="{StaticResource font_size2}"/>
+                <Setter Property="FontAttributes" Value="Bold"/>
+                <Setter Property="HorizontalOptions" Value="Center"/>
+                <Setter Property="VerticalOptions" Value="CenterAndExpand"/>
+                <Setter Property="Margin" Value="0,70,0,30"/>
+            </Style>
+            
+            <Style TargetType="Label" x:Key="UnderEntryNotationLabel">
+                <Setter Property="TextColor" Value="{StaticResource grey0}"/>
+                <Setter Property="FontSize" Value="{StaticResource font_size0}"/>
+                <Setter Property="WidthRequest" Value="{StaticResource width_request}"/>
+                <Setter Property="HorizontalOptions" Value="Center"/>
+                <Setter Property="FontAttributes" Value="Bold"/>
+                <Setter Property="Margin" Value="0,-10,0,0"/>
+            </Style>
+            
+            <Style TargetType="Grid" x:Key="HeaderGrid">
+                <Setter Property="Margin" Value="5,5,5,5"/>
+                <Setter Property="HeightRequest" Value="70"/>
+            </Style>
+            
+            <Style TargetType="Label" x:Key="HeaderNameLabel">
+                <Setter Property="TextColor" Value="{StaticResource blue1}"/>
+                <Setter Property="FontSize" Value="{StaticResource font_size4}"/>
+                <Setter Property="FontAttributes" Value="Bold"/>
+                <Setter Property="VerticalTextAlignment" Value="End"/>
+            </Style>
+            
+            <Style TargetType="Label" x:Key="HeaderMailLabel">
+                <Setter Property="TextColor" Value="{StaticResource blue0}"/>
+                <Setter Property="FontSize" Value="{StaticResource font_size1}"/>
+                <Setter Property="FontFamily" Value="{StaticResource Roboto-Regular}"/>
+                <Setter Property="Margin" Value="2,-8,0,0"/>
+            </Style>
+            
+            <Style TargetType="Frame" x:Key="HeaderIconFrame">
+                <Setter Property="IsClippedToBounds" Value="True"/>
+                <Setter Property="BackgroundColor" Value="Transparent"/>
+                <Setter Property="WidthRequest" Value="50"/>
+                <Setter Property="HeightRequest" Value="50"/>
+                <Setter Property="HorizontalOptions" Value="Center"/>
+                <Setter Property="VerticalOptions" Value="Center"/>
+                <Setter Property="Padding" Value="0"/>
+                <Setter Property="CornerRadius" Value="100"/>
+            </Style>
+            
+            <Style TargetType="Image" x:Key="HeaderIconInner">
+                <Setter Property="Source" Value="icon.png"/>
+                <Setter Property="Aspect" Value="AspectFill"/>
+            </Style>
+            
+            <Style TargetType="UIElements:Button" x:Key="TabButton">
+                <Setter Property="BackgroundColor" Value="{StaticResource grey1}"/>
+                <Setter Property="FontAttributes" Value="Bold"/>
+                <Setter Property="FontSize" Value="{StaticResource font_size2}"/>
+                <Setter Property="TextColor" Value="{StaticResource blue1}"/>
+                <Setter Property="VerticalOptions" Value="Start"/>
+                <Setter Property="TextAlignment" Value="Start"/>
+                <Setter Property="Padding" Value="20,13,0,0"/>
+            </Style>
+
+            <Style TargetType="yummy:PancakeView" x:Key="ElevatingGradient">
+                <Setter Property="HasShadow" Value="True"/>
+                <Setter Property="Elevation" Value="15"/>
+                <Setter Property="WidthRequest" Value="{StaticResource width_request}"/>
+                <Setter Property="HeightRequest" Value="160"/>
+                <Setter Property="HorizontalOptions" Value="Center"/>
+                <Setter Property="VerticalOptions" Value="Center"/>
+                <Setter Property="BackgroundGradientStartColor" Value="{StaticResource blue0}"/>
+                <Setter Property="BackgroundGradientEndColor" Value="{StaticResource blue1}"/>
+                <Setter Property="BackgroundGradientAngle" Value="145"/>
+                <Setter Property="CornerRadius" Value="25"/>
+                <Setter Property="Margin" Value="0,30,0,20"/>
+            </Style>
+
+            <Style TargetType="Label" x:Key="MainWallet">
+                <Setter Property="TextColor" Value="White"/>
+                <Setter Property="FontSize" Value="{StaticResource font_size5}"/>
+                <Setter Property="HorizontalOptions" Value="Center"/>
+                <Setter Property="VerticalOptions" Value="End"/>
+                <Setter Property="Margin" Value="0,15,0,0"/>
+                <Setter Property="FontFamily" Value="{StaticResource Roboto-Regular}"/>
+            </Style>
+
+            <Style TargetType="Button" x:Key="PayButton">
+                <Setter Property="HeightRequest" Value="40"/>
+                <Setter Property="WidthRequest" Value="200"/>
+                <Setter Property="HorizontalOptions" Value="Center"/>
+                <Setter Property="VerticalOptions" Value="Center"/>
+                <Setter Property="CornerRadius" Value="25"/>
+                <Setter Property="TextColor" Value="{StaticResource blue1}"/>
+                <Setter Property="FontSize" Value="{StaticResource font_size3}"/>
+                <Setter Property="FontAttributes" Value="Bold"/>
+                <Setter Property="Padding" Value="0"/>
+                <Setter Property="BackgroundColor" Value="White"/>
+            </Style>
+
+            <Style TargetType="Label" x:Key="UnderGradinetLabel">
+                <Setter Property="TextColor" Value="{StaticResource blue1}"/>
+                <Setter Property="FontSize" Value="{StaticResource font_size4}"/>
+                <Setter Property="FontAttributes" Value="Bold"/>
+                <Setter Property="HorizontalOptions" Value="Center"/>
+                <Setter Property="VerticalOptions" Value="Center"/>
+            </Style>
+
+            <DataTemplate x:Key="PaymentTemplate">
+                <ViewCell>
+                    <yummy:PancakeView HasShadow="True"
+                                       Elevation="10"
+                                       WidthRequest="{StaticResource width_request}"
+                                       HorizontalOptions="Center"
+                                       Margin="0,10,0,15"
+                                       CornerRadius="15">
+                        <Frame Padding="10,5,10,5"
+                               CornerRadius="15">
+                            <Grid RowSpacing="0"
+                                  ColumnSpacing="0"
+                                  HeightRequest="60">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width=".7*"/>
+                                    <ColumnDefinition Width=".3*"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height=".4*"/>
+                                    <RowDefinition Height=".6*"/>
+                                </Grid.RowDefinitions>
+                                <Label Text="{Binding Time}"
+                                       Grid.Column="0"
+                                       Grid.Row="0"
+                                       VerticalOptions="Center"
+                                       HorizontalOptions="Start"
+                                       FontSize="{StaticResource font_size2}"
+                                       FontAttributes="Bold"
+                                       TextColor="{StaticResource blue1}"/>
+                                <Label Text="{Binding Route}"
+                                       FontSize="{StaticResource font_size2}"
+                                       TextColor="{StaticResource blue0}"
+                                       FontAttributes="Bold"
+                                       FontFamily="{StaticResource Roboto-Bold}"
+                                       VerticalOptions="Center"
+                                       HorizontalOptions="Start"
+                                       Grid.Column="0"
+                                       Grid.Row="1"/>
+                                <Label Text="{Binding Price}"
+                                       TextColor="{StaticResource blue1}"
+                                       FontSize="{StaticResource font_size5}"
+                                       FontFamily="{StaticResource Roboto-Regular}"
+                                       VerticalOptions="Center"
+                                       Grid.Column="1"
+                                       Grid.Row="0"
+                                       Grid.RowSpan="2"/>
+                            </Grid>
+                        </Frame>
+                    </yummy:PancakeView>
+                </ViewCell>
+            </DataTemplate>
+
+            <Style TargetType="ListView" x:Key="MainList">
+                <Setter Property="HasUnevenRows" Value="True"/>
+                <Setter Property="Margin" Value="0,15,0,0"/>
+                <Setter Property="SelectionMode" Value="None"/>
+                <Setter Property="HeightRequest" Value="400"/>
+                <Setter Property="SeparatorVisibility" Value="None"/>
+            </Style>
+
+            <Style TargetType="Frame" x:Key="MainCover">
+                <Setter Property="BackgroundColor" Value="#000000"/>
+                <Setter Property="Opacity" Value=".75"/>
+                <Setter Property="CornerRadius" Value="0"/>
+            </Style>
+
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

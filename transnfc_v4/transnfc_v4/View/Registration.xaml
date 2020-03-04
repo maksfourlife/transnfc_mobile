@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="transnfc_v4.View.Registration"
+             xmlns:yummy="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout>
+                <Image Style="{StaticResource ImageBigLogo}"/>
+                <Entry Text="Имя"/>
+                <Entry Text="Фамилия"/>
+                <Entry Text="Почта"/>
+                <Entry Text="Логин"/>
+                <Entry Text="Пароль"/>
+                <Entry Text="Повторите пароль"/>
+                <Label Style="{StaticResource UnderEntryNotationLabel}"
+                       Text="*Нажимая кнопку далее, вы даете согласие на обработку ваших персональных данных."/>
+                <yummy:PancakeView Style="{StaticResource ElevatingButton}">
+                    <Button Style="{StaticResource ElevatingButtonInner}"
+                                Text="Далее"/>
+                </yummy:PancakeView>
+                <Label Style="{StaticResource UnderButtonLabel}"
+                           Text="Войти"/>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
