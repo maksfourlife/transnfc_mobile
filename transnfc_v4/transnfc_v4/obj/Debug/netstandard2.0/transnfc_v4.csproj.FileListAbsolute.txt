@@ -14,3 +14,6 @@ C:\repos\transnfc_4\transnfc_v4\transnfc_v4\obj\Debug\netstandard2.0\XamlC.stamp
 C:\repos\transnfc_4\transnfc_v4\transnfc_v4\obj\Debug\netstandard2.0\transnfc_v4.dll
 C:\repos\transnfc_4\transnfc_v4\transnfc_v4\obj\Debug\netstandard2.0\ref\transnfc_v4.dll
 C:\repos\transnfc_4\transnfc_v4\transnfc_v4\obj\Debug\netstandard2.0\transnfc_v4.pdb
+C:\repos\transnfc_4\transnfc_v4\transnfc_v4\obj\Debug\netstandard2.0\View\Wallet.xaml.g.cs
+C:\repos\transnfc_4\transnfc_v4\transnfc_v4\obj\Debug\netstandard2.0\View\Settings.xaml.g.cs
+C:\repos\transnfc_4\transnfc_v4\transnfc_v4\obj\Debug\netstandard2.0\View\Feedback.xaml.g.cs

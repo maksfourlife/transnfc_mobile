@@ -36,17 +36,23 @@
                                    Grid.Row="1"/>
                         </Grid>
                         <UIElements:Button Style="{StaticResource TabButton}"
+                                           Command="{Binding NewPageSelected}"
+                                           CommandParameter="Main"
                                            Text="Оплата"/>
                         <UIElements:Button Style="{StaticResource TabButton}"
+                                           Command="{Binding NewPageSelected}"
+                                           CommandParameter="Wallet"
                                            Text="Пополнение баланса"/>
-                        <!--<UIElements:Button Style="{StaticResource TabButton}"
-                                           Text="История оплаты"/>-->
                         <UIElements:Button Style="{StaticResource TabButton}"
+                                           Command="{Binding NewPageSelected}"
+                                           CommandParameter="Settings"
                                            Text="Настройки"/>
                     </StackLayout>
                     <StackLayout VerticalOptions="FillAndExpand"/>
                     <StackLayout>
                         <UIElements:Button Style="{StaticResource TabButton}"
+                                           Command="{Binding NewPageSelected}"
+                                           CommandParameter="Feedback"
                                            Text="Обратная связь"/>
                         <UIElements:Button Style="{StaticResource TabButton}"
                                            Text="Выход"/>

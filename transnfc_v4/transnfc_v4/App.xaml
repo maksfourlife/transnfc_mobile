@@ -239,7 +239,7 @@
                 </ViewCell>
             </DataTemplate>
 
-            <Style TargetType="ListView" x:Key="MainList">
+            <Style TargetType="ListView" x:Key="AppList">
                 <Setter Property="HasUnevenRows" Value="True"/>
                 <Setter Property="Margin" Value="0,15,0,0"/>
                 <Setter Property="SelectionMode" Value="None"/>

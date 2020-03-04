@@ -39,7 +39,7 @@
                     </yummy:PancakeView>
                     <Label Style="{StaticResource UnderGradinetLabel}"
                            Text="Нeдавние поездки"/>
-                    <ListView Style="{StaticResource MainList}"
+                    <ListView Style="{StaticResource AppList}"
                               ItemTemplate="{StaticResource PaymentTemplate}"
                               ItemsSource="{Binding PaymentList}">
                     </ListView>

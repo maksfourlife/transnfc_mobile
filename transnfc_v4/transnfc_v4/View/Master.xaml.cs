@@ -16,7 +16,30 @@ namespace transnfc_v4.View
         {
             InitializeComponent();
 
+            BindingContext = new ViewModel.Master(NewPageSelected);
+
             SetPage(new Main());
+        }
+
+        void NewPageSelected(string page_name)
+        {
+            switch (page_name)
+            {
+                case "Main":
+                    SetPage(new Main());
+                    return;
+                case "Wallet":
+                    SetPage(new Wallet());
+                    return;
+                case "Settings":
+                    SetPage(new Settings());
+                    return;
+                case "Feedback":
+                    SetPage(new Feedback());
+                    return;
+                default:
+                    throw new NotImplementedException();
+            }
         }
 
         void SetPage(Page page)
@@ -25,6 +48,7 @@ namespace transnfc_v4.View
             {
                 BarBackgroundColor = (Color)Application.Current.Resources["blue1"],
             };
+            IsPresented = false;
         }
     }
 }
