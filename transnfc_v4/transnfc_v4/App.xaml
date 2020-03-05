@@ -157,13 +157,25 @@
                 <Setter Property="Margin" Value="0,30,0,20"/>
             </Style>
 
-            <Style TargetType="Label" x:Key="MainWallet">
+            <Style TargetType="Label" x:Key="WalletLabel">
                 <Setter Property="TextColor" Value="White"/>
                 <Setter Property="FontSize" Value="{StaticResource font_size5}"/>
                 <Setter Property="HorizontalOptions" Value="Center"/>
                 <Setter Property="VerticalOptions" Value="End"/>
                 <Setter Property="Margin" Value="0,15,0,0"/>
                 <Setter Property="FontFamily" Value="{StaticResource Roboto-Regular}"/>
+            </Style>
+
+            <Style TargetType="UIElements:Entry" x:Key="WalletEntry">
+                <Setter Property="TextColor" Value="White"/>
+                <Setter Property="FontSize" Value="{StaticResource font_size4}"/>
+                <Setter Property="HorizontalOptions" Value="Center"/>
+                <Setter Property="VerticalOptions" Value="End"/>
+                <Setter Property="FontFamily" Value="{StaticResource Roboto-Regular}"/>
+                <Setter Property="PlaceholderColor" Value="White"/>
+                <Setter Property="HorizontalTextAlignment" Value="Center"/>
+                <Setter Property="WidthRequest" Value="200"/>
+                <Setter Property="Margin" Value="0,0,0,-10"/>
             </Style>
 
             <Style TargetType="Button" x:Key="PayButton">

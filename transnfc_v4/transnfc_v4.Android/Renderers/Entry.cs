@@ -32,17 +32,17 @@ namespace transnfc_v4.Droid.Renderers
                         GradientDrawable gd = new GradientDrawable();
                         gd.SetShape(ShapeType.Line);
                         gd.SetStroke(5, Color.FromHex("#277db6").ToAndroid());
-
                         ScaleDrawable sd = new ScaleDrawable(gd, GravityFlags.Bottom, 0f, 2f);
                         sd.SetLevel(7500);
-
                         Control.SetBackground(sd);
-                        return;
+                        break;
                     case UIElements.Entry.UnderlineDisplay.Hidden:
                         Control.SetBackground(new GradientDrawable());
-                        return;
-                    default:
-                        return;
+                        break;
+                }
+                if (!(e.NewElement as UIElements.Entry).CursorVisible)
+                {
+                    Control.SetCursorVisible(false);
                 }
             }
         }

@@ -19,21 +19,17 @@
                         <RowDefinition Height=".5*"/>
                         <RowDefinition Height=".5*"/>
                     </Grid.RowDefinitions>
-                    <UIElements:Entry Grid.Column="0"
+                    <UIElements:Entry Style="{StaticResource WalletEntry}"
+                                      Grid.Column="0"
                                       Grid.Row="0"
-                                      VerticalOptions="End"
-                                      HorizontalOptions="Center"
-                                      HorizontalTextAlignment="Center"
-                                      Placeholder="Укажите сумму"
-                                      PlaceholderColor="LightGray"
-                                      WidthRequest="200"
-                                      HeightRequest="40"
-                                      Underline="Hidden">
+                                      Placeholder="Укажите сумму..."
+                                      Underline="Hidden"
+                                      CursorVisible="False">
                     </UIElements:Entry>
                     <Button Grid.Column="0"
                             Grid.Row="1"
                             Style="{StaticResource PayButton}"
-                            Text="Пополнить баланс"></Button>
+                            Text="Пополнить"></Button>
                 </Grid>
             </yummy:PancakeView>
         </StackLayout>
