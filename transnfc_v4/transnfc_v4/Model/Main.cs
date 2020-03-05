@@ -8,9 +8,11 @@ namespace transnfc_v4.Model
     {
         public List<Data.Payment> PaymentList { get; set; }
         public string Wallet;
+        public bool CoverShown;
 
         public Main()
         {
+            CoverShown = false;
             Wallet = Data.Converter.ConvertMoney(4350);
             PaymentList = new List<Data.Payment>
             {

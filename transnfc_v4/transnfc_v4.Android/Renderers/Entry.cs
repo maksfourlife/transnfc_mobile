@@ -13,7 +13,7 @@ using Android.Widget;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.Android;
 
-[assembly: ExportRenderer(typeof(Xamarin.Forms.Entry), typeof(transnfc_v4.Droid.Renderers.Entry))]
+[assembly: ExportRenderer(typeof(transnfc_v4.UIElements.Entry), typeof(transnfc_v4.Droid.Renderers.Entry))]
 namespace transnfc_v4.Droid.Renderers
 {
     class Entry : EntryRenderer
@@ -26,14 +26,24 @@ namespace transnfc_v4.Droid.Renderers
 
             if (e.OldElement == null)
             {
-                GradientDrawable gd = new GradientDrawable();
-                gd.SetShape(ShapeType.Line);
-                gd.SetStroke(5, Color.FromHex("#277db6").ToAndroid());
+                switch ((e.NewElement as UIElements.Entry).Underline)
+                {
+                    case UIElements.Entry.UnderlineDisplay.Normal:
+                        GradientDrawable gd = new GradientDrawable();
+                        gd.SetShape(ShapeType.Line);
+                        gd.SetStroke(5, Color.FromHex("#277db6").ToAndroid());
 
-                ScaleDrawable sd = new ScaleDrawable(gd, GravityFlags.Bottom, 0f, 2f);
-                sd.SetLevel(7500);
+                        ScaleDrawable sd = new ScaleDrawable(gd, GravityFlags.Bottom, 0f, 2f);
+                        sd.SetLevel(7500);
 
-                Control.SetBackground(sd);
+                        Control.SetBackground(sd);
+                        return;
+                    case UIElements.Entry.UnderlineDisplay.Hidden:
+                        Control.SetBackground(new GradientDrawable());
+                        return;
+                    default:
+                        return;
+                }
             }
         }
     }

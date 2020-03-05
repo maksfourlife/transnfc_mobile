@@ -8,7 +8,7 @@
              xmlns:yummy="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
              Title="Оплата">
     <ContentPage.Content>
-        <ScrollView>
+        <ScrollView IsEnabled="True">
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
