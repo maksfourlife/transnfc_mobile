@@ -4,22 +4,18 @@ using System.Text;
 
 namespace transnfc_v4.Data
 {
-    class Payment
+    class Purchase
     {
         public string Time { get { return $"{_time.Day} {Converter.ConvertMonth(_time.Month)} в {_time.Hour}:{Converter.ConvertMinute(_time.Minute)}"; } }
         private DateTime _time;
 
-        public string Route { get { return $"Маршрут {_route}"; } }
-        private string _route;
+        public string Amount { get { return "+" + _amount.ToString() + (char)0x20bd; } }
+        private int _amount;
 
-        public string Price { get { return $"-{_price}{(char)0x20bd}"; } }
-        private int _price;
-
-        public Payment(DateTime time, string route, int price)
+        public Purchase(DateTime time, int amount)
         {
             _time = time;
-            _route = route;
-            _price = price;
+            _amount = amount;
         }
     }
 }

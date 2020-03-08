@@ -9,29 +9,38 @@
              xmlns:UIElements="clr-namespace:transnfc_v4.UIElements"
              Title="Пополнение баланса">
     <ContentPage.Content>
-        <StackLayout>
-            <yummy:PancakeView Style="{StaticResource ElevatingGradient}">
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*"/>
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height=".5*"/>
-                        <RowDefinition Height=".5*"/>
-                    </Grid.RowDefinitions>
-                    <UIElements:Entry Style="{StaticResource WalletEntry}"
-                                      Grid.Column="0"
-                                      Grid.Row="0"
-                                      Placeholder="Укажите сумму..."
-                                      Underline="Hidden"
-                                      CursorVisible="False">
-                    </UIElements:Entry>
-                    <Button Grid.Column="0"
-                            Grid.Row="1"
-                            Style="{StaticResource PayButton}"
-                            Text="Пополнить"></Button>
-                </Grid>
-            </yummy:PancakeView>
-        </StackLayout>
+        <ScrollView>
+            <StackLayout>
+                <yummy:PancakeView Style="{StaticResource ElevatingGradient}">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height=".5*"/>
+                            <RowDefinition Height=".5*"/>
+                        </Grid.RowDefinitions>
+                        <Label Grid.Column="0"
+                               Grid.Row="0"
+                               Style="{StaticResource WalletLabel}"
+                               Text="{Binding SumFieldLabel}"/>
+                        <UIElements:Entry Grid.Column="0"
+                                          Grid.Row="0"
+                                          Style="{StaticResource WalletEntry}"
+                                          Text="{Binding SumFieldEntry}"/>
+                        <Button Grid.Column="0"
+                                Grid.Row="1"
+                                Style="{StaticResource PayButton}"
+                                Text="Пополнить"></Button>
+                    </Grid>
+                </yummy:PancakeView>
+                <Label Style="{StaticResource UnderGradinetLabel}"
+                           Text="Нeдавние пополнения"/>
+                <ListView Style="{StaticResource AppList}"
+                            ItemTemplate="{StaticResource PurchaseTemplate}"
+                            ItemsSource="{Binding PurchaseHistory}">
+                </ListView>
+            </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>

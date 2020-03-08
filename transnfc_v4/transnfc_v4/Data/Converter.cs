@@ -6,12 +6,6 @@ namespace transnfc_v4.Data
 {
     struct Converter
     {
-        public static string ConvertMoney(int a)
-        {
-            string s = a.ToString();
-            return s.Insert(s.Length - 2, ".");
-        }
-
         public static string ConvertMonth(int n)
         {
             switch (n)

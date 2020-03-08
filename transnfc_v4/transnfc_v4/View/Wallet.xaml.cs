@@ -15,6 +15,8 @@ namespace transnfc_v4.View
         public Wallet()
         {
             InitializeComponent();
+
+            BindingContext = new ViewModel.Wallet();
         }
     }
 }

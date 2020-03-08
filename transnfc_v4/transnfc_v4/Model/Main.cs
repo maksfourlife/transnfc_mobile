@@ -13,13 +13,13 @@ namespace transnfc_v4.Model
         public Main()
         {
             CoverShown = false;
-            Wallet = Data.Converter.ConvertMoney(4350);
+            Wallet = "43";
             PaymentList = new List<Data.Payment>
             {
-                new Data.Payment(DateTime.Now, "1A", 6000),
-                new Data.Payment(DateTime.Now, "1A", 6000),
-                new Data.Payment(DateTime.Now, "1A", 6000),
-                new Data.Payment(DateTime.Now, "1A", 6000),
+                new Data.Payment(DateTime.Now, "1A", 60),
+                new Data.Payment(DateTime.Now, "1A", 60),
+                new Data.Payment(DateTime.Now, "1A", 60),
+                new Data.Payment(DateTime.Now, "1A", 60),
             };
         }
     }

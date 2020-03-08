@@ -167,15 +167,16 @@
             </Style>
 
             <Style TargetType="UIElements:Entry" x:Key="WalletEntry">
-                <Setter Property="TextColor" Value="White"/>
-                <Setter Property="FontSize" Value="{StaticResource font_size4}"/>
+                <Setter Property="TextColor" Value="Transparent"/>
+                <Setter Property="FontSize" Value="{StaticResource font_size5}"/>
                 <Setter Property="HorizontalOptions" Value="Center"/>
                 <Setter Property="VerticalOptions" Value="End"/>
                 <Setter Property="FontFamily" Value="{StaticResource Roboto-Regular}"/>
-                <Setter Property="PlaceholderColor" Value="White"/>
                 <Setter Property="HorizontalTextAlignment" Value="Center"/>
                 <Setter Property="WidthRequest" Value="200"/>
                 <Setter Property="Margin" Value="0,0,0,-10"/>
+                <Setter Property="Underline" Value="Hidden"/>
+                <Setter Property="CursorVisible" Value="False"/>
             </Style>
 
             <Style TargetType="Button" x:Key="PayButton">
@@ -245,6 +246,48 @@
                                        Grid.Column="1"
                                        Grid.Row="0"
                                        Grid.RowSpan="2"/>
+                            </Grid>
+                        </Frame>
+                    </yummy:PancakeView>
+                </ViewCell>
+            </DataTemplate>
+
+            <DataTemplate x:Key="PurchaseTemplate">
+                <ViewCell>
+                    <yummy:PancakeView HasShadow="True"
+                                       Elevation="10"
+                                       WidthRequest="{StaticResource width_request}"
+                                       HorizontalOptions="Center"
+                                       Margin="0,10,0,15"
+                                       CornerRadius="15">
+                        <Frame Padding="10,5,10,5"
+                               CornerRadius="15">
+                            <Grid RowSpacing="0"
+                                  ColumnSpacing="0"
+                                  HeightRequest="60">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width=".7*"/>
+                                    <ColumnDefinition Width=".3*"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+                                <Label Grid.Column="0"
+                                       Grid.Row="0"
+                                       Text="{Binding Time}"
+                                       VerticalOptions="Center"
+                                       HorizontalOptions="Center"
+                                       FontSize="{StaticResource font_size3}"
+                                       FontAttributes="Bold"
+                                       TextColor="{StaticResource blue1}"/>
+                                <Label Grid.Column="1"
+                                       Grid.Row="0"
+                                       Text="{Binding Amount}"
+                                       VerticalOptions="Center"
+                                       HorizontalOptions="Center"
+                                       FontSize="{StaticResource font_size5}"
+                                       FontFamily="{StaticResource Roboto-Regular}"
+                                       TextColor="{StaticResource blue1}"/>
                             </Grid>
                         </Frame>
                     </yummy:PancakeView>

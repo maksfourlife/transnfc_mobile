@@ -14,15 +14,34 @@ namespace transnfc_v4.ViewModel
 
         public Wallet()
         {
-
+            _model = new Model.Wallet();
         }
 
-        public string SumField
+        public List<Data.Purchase> PurchaseHistory
         {
-            get { return  }
+            get { return _model.PurchaseHistory; }
+            set
+            {
+                _model.PurchaseHistory = value;
+                OnPropertyChanged();
+            }
         }
 
-        public ICommand SumFieldChanged { get; private set; }
+        public string SumFieldLabel
+        {
+            get { return _model.SumField + (char)0x20bd; }
+        }
+
+        public string SumFieldEntry
+        {
+            get { return _model.SumField; }
+            set
+            {
+                _model.SumFieldEntryChange(value);
+                OnPropertyChanged();
+                OnPropertyChanged("SumFieldLabel");
+            }
+        }
 
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -30,7 +49,5 @@ namespace transnfc_v4.ViewModel
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(property_name));
         }
-
-
     }
 }
