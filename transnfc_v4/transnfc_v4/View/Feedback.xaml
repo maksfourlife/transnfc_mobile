@@ -5,9 +5,40 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="transnfc_v4.View.Feedback"
-             Title="Обратная связь">
+             Title="Обратная связь"
+             xmlns:yummy="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+             xmlns:UIElements="clr-namespace:transnfc_v4.UIElements">
     <ContentPage.Content>
-        <StackLayout>
-        </StackLayout>
+        <ScrollView>
+            <StackLayout>
+                <Image Style="{StaticResource FeedbackLogo}"/>
+                <yummy:PancakeView Style="{StaticResource OptionContainer}">
+                    <UIElements:Button Style="{StaticResource Option}"
+                                       Command="{Binding OptionSelected}"
+                                       CommandParameter="License"
+                                       Text="Лицензия"/>
+                </yummy:PancakeView>
+                <yummy:PancakeView Style="{StaticResource OptionContainer}">
+                    <UIElements:Button Style="{StaticResource Option}"
+                                       Command="{Binding OptionSelected}"
+                                       CommandParameter="UserAgreement"
+                                       Text="Пользовательское соглашение"/>
+                </yummy:PancakeView>
+                <StackLayout HeightRequest="80"
+                             VerticalOptions="Center"/>
+                <yummy:PancakeView Style="{StaticResource OptionContainer}">
+                    <UIElements:Button Style="{StaticResource Option}"
+                                       Command="{Binding OptionSelected}"
+                                       CommandParameter="ReportAProblem"
+                                       Text="Сообщить о проблеме"/>
+                </yummy:PancakeView>
+                <yummy:PancakeView Style="{StaticResource OptionContainer}">
+                    <UIElements:Button Style="{StaticResource Option}"
+                                       Command="{Binding OptionSelected}"
+                                       CommandParameter="Contacts"
+                                       Text="Контакты"/>
+                </yummy:PancakeView>
+            </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>

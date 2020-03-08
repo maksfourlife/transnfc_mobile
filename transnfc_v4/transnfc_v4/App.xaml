@@ -21,6 +21,7 @@
             <x:Double x:Key="font_size3">19</x:Double>
             <x:Double x:Key="font_size4">22</x:Double>
             <x:Double x:Key="font_size5">30</x:Double>
+            <x:Double x:Key="font_size6">35</x:Double>
 
             <x:Double x:Key="width_request">300</x:Double>
             <x:Double x:Key="header_icon_size">100</x:Double>
@@ -159,7 +160,7 @@
 
             <Style TargetType="Label" x:Key="WalletLabel">
                 <Setter Property="TextColor" Value="White"/>
-                <Setter Property="FontSize" Value="{StaticResource font_size5}"/>
+                <Setter Property="FontSize" Value="{StaticResource font_size6}"/>
                 <Setter Property="HorizontalOptions" Value="Center"/>
                 <Setter Property="VerticalOptions" Value="End"/>
                 <Setter Property="Margin" Value="0,15,0,0"/>
@@ -306,6 +307,29 @@
                 <Setter Property="BackgroundColor" Value="#000000"/>
                 <Setter Property="Opacity" Value=".75"/>
                 <Setter Property="CornerRadius" Value="0"/>
+            </Style>
+
+            <Style TargetType="Image" x:Key="FeedbackLogo">
+                <Setter Property="Source" Value="logo.png"/>
+                <Setter Property="VerticalOptions" Value="Center"/>
+                <Setter Property="HorizontalOptions" Value="Center"/>
+                <Setter Property="WidthRequest" Value="270"/>
+                <Setter Property="Margin" Value="0,70,0,100"/>
+            </Style>
+
+            <Style TargetType="yummy:PancakeView" x:Key="OptionContainer">
+                <Setter Property="Elevation" Value="10"/>
+                <Setter Property="BackgroundColor" Value="Transparent"/>
+                <Setter Property="Margin" Value="0,0,0,20"/>
+            </Style>
+
+            <Style TargetType="UIElements:Button" x:Key="Option">
+                <Setter Property="TextAlignment" Value="Start"/>
+                <Setter Property="BackgroundColor" Value="White"/>
+                <Setter Property="Padding" Value="15,10,0,10"/>
+                <Setter Property="FontFamily" Value="{StaticResource Roboto-Regular}"/>
+                <Setter Property="FontSize" Value="{StaticResource font_size3}"/>
+                <Setter Property="TextColor" Value="{StaticResource blue1}"/>
             </Style>
 
         </ResourceDictionary>

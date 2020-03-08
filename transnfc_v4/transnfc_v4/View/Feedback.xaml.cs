@@ -15,6 +15,8 @@ namespace transnfc_v4.View
         public Feedback()
         {
             InitializeComponent();
+
+            BindingContext = new ViewModel.Feedback(this);
         }
     }
 }

@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="transnfc_v4.View.UserAgreement"
+             Title="Пользовательское соглашение">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout>
+                <Label Text="Lorem ipsum dolor sit amet, tellus velit, bibendum ullamcorper tortor, ac ultricies wisi at id lorem, sed libero. Rutrum habitasse lectus cursus dolor proin, quis pede eleifend est in diam, ultrices commodo, mi praesent fringilla, tellus vivamus potenti sed curabitur at. Luctus sed placerat. Vivamus sed feugiat turpis sed ut eleifend, malesuada ante volutpat cursus enim ornare ac. Penatibus purus pulvinar et erat lacinia, lorem dui viverra, porta dui felis lacus fringilla, sed ligula eget egestas nisl. Placerat eget placerat sapien eu, justo a sed cursus facilisi. Risus pellentesque ligula risus, nec risus gravida vel vestibulum fames varius, vitae dolor qui, vitae lectus nonummy lobortis nulla sit, dicta wisi dui non dolor. Ullamcorper pede erat, velit iaculis in risus vestibulum pharetra. Semper quam est velit habitasse, maecenas per dictum scelerisque risus sed, enim orci luctus vulputate sollicitudin sed praesent. At et non nam et vel, ornare eu eu augue, mauris augue. Amet mattis risus, orci quam, bibendum dictum tempor, aenean egestas cras mi pellentesque eget, quis mi placerat.
+
+    Porta in praesent, nec massa neque maecenas vestibulum rhoncus tortor. Placerat molestie, congue turpis gravida ligula harum viverra, eu massa aliquam, arcu nascetur vitae leo, vel fringilla nec. At enim tellus nonummy vestibulum sed, turpis rutrum ac, est aliquam velit, mauris mauris eget. Quisque leo est. Quam vitae, donec cursus pellentesque ligula augue.
+
+    Ac ut vitae, vehicula velit quisque mi tristique duis, lobortis urna, donec ac enim mollis elit placerat. Nunc sem aliquet pellentesque etiam. Mi urna, ultrices vel convallis venenatis, tellus magna a quisque. Mauris amet, massa leo vel erat. Nisl ridiculus felis taciti scelerisque sem auctor, lectus volutpat maecenas tortor sit mattis suspendisse. Magna vitae vel wisi sociis massa vitae, sodales molestie eget, ullamcorper nibh est nibh, massa lorem odio odio. Justo commodo hymenaeos mattis vivamus. Libero congue, pellentesque ut et non faucibus. Volutpat nunc donec vel. Vitae dolor odio placerat, tellus dui sit nec, adipiscing massa tincidunt.
+
+    Amet nam eget vestibulum, a natoque et pellentesque egestas. Viverra per. Leo sem non rhoncus lacus et, suspendisse mattis venenatis sed, amet nibh pretium, ad fugit. Dui amet nec, feugiat a vestibulum nulla platea interdum consectetuer, nulla habitasse amet tortor ipsum, ultrices praesent vel cras. Mauris justo vestibulum a magna. Facilisis ante magna mus. Non proin dui, gravida non ac proin sem adipiscing ullamcorper, ut mattis, exercitationem ornare nullam, et nunc in. Tincidunt vulputate varius viverra mauris neque aenean."/>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
