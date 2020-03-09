@@ -7,20 +7,24 @@
              x:Class="transnfc_v4.View.Login"
              xmlns:yummy="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView">
     <ContentPage.Content>
-            <ScrollView x:Name="scroll">
-                <StackLayout>
-                    <Image Style="{StaticResource ImageBigLogo}"/>
-                    <Entry Placeholder="Логин"/>
-                    <Entry Placeholder="Пароль"/>
-                    <Label Style="{StaticResource UnderEntryLabel}"
-                           Text="Зaбыли пароль?"/>
-                    <yummy:PancakeView Style="{StaticResource ElevatingButton}">
-                        <Button Style="{StaticResource ElevatingButtonInner}"
-                                Text="Далее"/>
-                    </yummy:PancakeView>
-                    <Label Style="{StaticResource UnderButtonLabel}"
-                               Text="Регистрация"/>
+        <ScrollView x:Name="scroll">
+            <StackLayout>
+                <Image Style="{StaticResource ImageBigLogo}"/>
+                <Entry Placeholder="Логин"/>
+                <Entry Placeholder="Пароль"/>
+                <Label Style="{StaticResource UnderEntryLabel}"
+                        Text="Зaбыли пароль?"/>
+                <yummy:PancakeView Style="{StaticResource ElevatingButton}">
+                    <Button Style="{StaticResource ElevatingButtonInner}"
+                            Text="Далее"/>
+                </yummy:PancakeView>
+                <Label Style="{StaticResource UnderButtonLabel}"
+                               Text="Регистрация">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding GoToRegister}"/>
+                    </Label.GestureRecognizers>
+                </Label>
             </StackLayout>
-            </ScrollView>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>

@@ -52,7 +52,17 @@
                 <Setter Property="FontFamily" Value="Calibri"/>
                 <Setter Property="Margin" Value="0,-3,0,7"/>
             </Style>
-            
+
+            <Style TargetType="UIElements:Entry">
+                <Setter Property="WidthRequest" Value="{StaticResource width_request}"/>
+                <Setter Property="HorizontalOptions" Value="Center"/>
+                <Setter Property="PlaceholderColor" Value="{StaticResource grey0}"/>
+                <Setter Property="FontSize" Value="{StaticResource font_size2}"/>
+                <Setter Property="FontAttributes" Value="Bold"/>
+                <Setter Property="FontFamily" Value="Calibri"/>
+                <Setter Property="Margin" Value="0,-3,0,7"/>
+            </Style>
+
             <Style TargetType="Label" x:Key="UnderEntryLabel">
                 <Setter Property="TextColor" Value="{StaticResource blue0}"/>
                 <Setter Property="WidthRequest" Value="{StaticResource width_request}"/>
@@ -330,6 +340,20 @@
                 <Setter Property="FontFamily" Value="{StaticResource Roboto-Regular}"/>
                 <Setter Property="FontSize" Value="{StaticResource font_size3}"/>
                 <Setter Property="TextColor" Value="{StaticResource blue1}"/>
+            </Style>
+
+            <Style TargetType="Label" x:Key="Contact">
+                <Setter Property="FontSize" Value="{StaticResource font_size5}"/>
+                <Setter Property="TextColor" Value="{StaticResource blue1}"/>
+                <Setter Property="FontFamily" Value="{StaticResource Roboto-Bold}"/>
+                <Setter Property="Margin" Value="20,10,0,5"/>
+            </Style>
+
+            <Style TargetType="Label" x:Key="SubContact">
+                <Setter Property="FontSize" Value="{StaticResource font_size3}"/>
+                <Setter Property="TextColor" Value="{StaticResource blue0}"/>
+                <Setter Property="Margin" Value="20,0,0,10"/>
+                <Setter Property="TextDecorations" Value="Underline"/>
             </Style>
 
         </ResourceDictionary>

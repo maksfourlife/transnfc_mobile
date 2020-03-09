@@ -10,12 +10,12 @@
         <ScrollView>
             <StackLayout>
                 <Image Style="{StaticResource ImageBigLogo}"/>
-                <Entry Text="Имя"/>
-                <Entry Text="Фамилия"/>
-                <Entry Text="Почта"/>
-                <Entry Text="Логин"/>
-                <Entry Text="Пароль"/>
-                <Entry Text="Повторите пароль"/>
+                <Entry Placeholder="Имя"/>
+                <Entry Placeholder="Фамилия"/>
+                <Entry Placeholder="Почта"/>
+                <Entry Placeholder="Логин"/>
+                <Entry Placeholder="Пароль"/>
+                <Entry Placeholder="Повторите пароль"/>
                 <Label Style="{StaticResource UnderEntryNotationLabel}"
                        Text="*Нажимая кнопку далее, вы даете согласие на обработку ваших персональных данных."/>
                 <yummy:PancakeView Style="{StaticResource ElevatingButton}">
@@ -23,7 +23,11 @@
                                 Text="Далее"/>
                 </yummy:PancakeView>
                 <Label Style="{StaticResource UnderButtonLabel}"
-                           Text="Войти"/>
+                           Text="Войти">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding GoToLogin}"/>
+                    </Label.GestureRecognizers>
+                </Label>
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>

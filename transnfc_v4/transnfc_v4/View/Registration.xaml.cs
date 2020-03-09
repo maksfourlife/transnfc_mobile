@@ -15,6 +15,8 @@ namespace transnfc_v4.View
         public Registration()
         {
             InitializeComponent();
+
+            BindingContext = new ViewModel.Registration();
         }
     }
 }

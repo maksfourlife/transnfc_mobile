@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="transnfc_v4.View.Contacts"
+             Title="Контакты">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout>
+                
+                <Label Style="{StaticResource Contact}"
+                       Text="Вебсайт"/>
+                <Label Style="{StaticResource SubContact}"
+                       Text="http://www.transnfc.com/about"/>
+                <Label Style="{StaticResource SubContact}"
+                       Text="http://www.transnfc.com/support"/>
+
+                <Label Style="{StaticResource Contact}"
+                       Text="E-Mail"/>
+                <Label Style="{StaticResource SubContact}"
+                       Text="support@transnfc.com"/>
+
+                <Label Style="{StaticResource Contact}"
+                       Text="Телефон"/>
+                <Label Style="{StaticResource SubContact}"
+                       Text="+7 (777) 777-77-77"/>
+
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

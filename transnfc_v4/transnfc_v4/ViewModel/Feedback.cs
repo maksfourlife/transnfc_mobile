@@ -21,9 +21,11 @@ namespace transnfc_v4.ViewModel
                     case "License":
                         await binder.Navigation.PushAsync(new View.License());
                         return;
-                    case "ReportAPropblem":
+                    case "ReportAProblem":
+                        await binder.Navigation.PushAsync(new View.Report());
                         return;
                     case "Contacts":
+                        await binder.Navigation.PushAsync(new View.Contacts());
                         return;
                 }
             });

@@ -15,6 +15,8 @@ namespace transnfc_v4.View
         public Login()
         {
             InitializeComponent();
+
+            BindingContext = new ViewModel.Login();
         }
     }
 }

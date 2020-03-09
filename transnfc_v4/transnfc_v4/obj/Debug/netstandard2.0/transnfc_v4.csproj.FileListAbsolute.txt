@@ -19,3 +19,5 @@ C:\repos\transnfc_4\transnfc_v4\transnfc_v4\obj\Debug\netstandard2.0\View\Settin
 C:\repos\transnfc_4\transnfc_v4\transnfc_v4\obj\Debug\netstandard2.0\View\Feedback.xaml.g.cs
 C:\repos\transnfc_4\transnfc_v4\transnfc_v4\obj\Debug\netstandard2.0\View\License.xaml.g.cs
 C:\repos\transnfc_4\transnfc_v4\transnfc_v4\obj\Debug\netstandard2.0\View\UserAgreement.xaml.g.cs
+C:\repos\transnfc_4\transnfc_v4\transnfc_v4\obj\Debug\netstandard2.0\View\Contacts.xaml.g.cs
+C:\repos\transnfc_4\transnfc_v4\transnfc_v4\obj\Debug\netstandard2.0\View\Report.xaml.g.cs

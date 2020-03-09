@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="transnfc_v4.View.Report"
+             xmlns:yummy="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+             xmlns:UIElements="clr-namespace:transnfc_v4.UIElements"
+             Title="Сообщить о проблеме">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout>
+                <UIElements:Entry Placeholder="Тема проблемы"
+                                  Margin="0,30,0,20"
+                                  Underline="Normal"
+                                  CursorVisible="True"/>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

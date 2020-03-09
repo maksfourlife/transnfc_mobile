@@ -10,7 +10,7 @@ namespace transnfc_v4
         {
             InitializeComponent();
 
-            MainPage = new View.Master();
+            MainPage = new View.Login();
         }
     }
 }
