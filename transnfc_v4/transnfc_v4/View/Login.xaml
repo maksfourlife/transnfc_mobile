@@ -10,16 +10,19 @@
         <ScrollView x:Name="scroll">
             <StackLayout>
                 <Image Style="{StaticResource ImageBigLogo}"/>
-                <Entry Placeholder="Логин"/>
-                <Entry Placeholder="Пароль"/>
+                <Entry Placeholder="Логин или email"
+                       Text="{Binding LoginOrEmail}"/>
+                <Entry Placeholder="Пароль"
+                       Text="{Binding Password}"/>
                 <Label Style="{StaticResource UnderEntryLabel}"
                         Text="Зaбыли пароль?"/>
                 <yummy:PancakeView Style="{StaticResource ElevatingButton}">
                     <Button Style="{StaticResource ElevatingButtonInner}"
+                            Command="{Binding LogIn}"
                             Text="Далее"/>
                 </yummy:PancakeView>
                 <Label Style="{StaticResource UnderButtonLabel}"
-                               Text="Регистрация">
+                       Text="Регистрация">
                     <Label.GestureRecognizers>
                         <TapGestureRecognizer Command="{Binding GoToRegister}"/>
                     </Label.GestureRecognizers>

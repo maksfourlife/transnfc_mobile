@@ -28,7 +28,7 @@ namespace transnfc_v4.ViewModel
 
                 try
                 {
-                    Data.UserData data = await _model.Register(Application.Current.Resources["url"] as string);
+                    Data.User data = await _model.Register(Application.Current.Resources["url"] as string);
                     if (data != null)
                     {
                         Application.Current.Properties["id"] = data.Id;
@@ -42,17 +42,13 @@ namespace transnfc_v4.ViewModel
                 }
                 catch (Exception e)
                 {
-                    if (e is Data.PasswordsDontMatchException)
+                    if (e is Exceptions.PasswordsMismatch)
                         await mention_about_error("Пароли не совпадают");
-                    else if (e is Data.EmptyFieldException)
+                    else if (e is Exceptions.EmptyField)
                         await mention_about_error("Одно или несколько полей пусты");
-                    else if (e is Data.AlreadyTakenEmailException)
+                    else if (e is Exceptions.EmailAlreadyTaken)
                         await mention_about_error("Пользвотель с данной почтой уже зарегестирован");
-                    else if (e is Data.AlreadyTakenFirstNameException)
-                        await mention_about_error("Пользователь с таким именем уже зарегестрирован");
-                    else if (e is Data.AlreadyTakenLastNameException)
-                        await mention_about_error("Пользователь с данной фамилией уже зарегестирован");
-                    else if (e is Data.NotEmailException)
+                    else if (e is Exceptions.NotEmail)
                         await mention_about_error("Пожалуйста, введите корректный email");
                     else
                         await mention_about_error($"Неизвестная ошибка - {e.Message}");

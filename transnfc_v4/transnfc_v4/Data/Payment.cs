@@ -6,7 +6,7 @@ namespace transnfc_v4.Data
 {
     class Payment
     {
-        public string Time { get { return $"{_time.Day} {Converter.ConvertMonth(_time.Month)} в {_time.Hour}:{Converter.ConvertMinute(_time.Minute)}"; } }
+        public string Time { get { return $"{_time.Day} {Convert.ConvertMonth(_time.Month)} в {_time.Hour}:{Convert.ConvertMinute(_time.Minute)}"; } }
         private DateTime _time;
 
         public string Route { get { return $"Маршрут {_route}"; } }

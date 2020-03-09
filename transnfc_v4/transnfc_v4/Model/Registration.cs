@@ -17,17 +17,17 @@ namespace transnfc_v4.Model
         public string FirstName = "";
         public string LastName = "";
 
-        public async Task<Data.UserData> Register(string url)
+        public async Task<Data.User> Register(string url)
         {
             if (Email == "" || Login == "" || Password == "" || PasswordCheck == "" || FirstName == "" || LastName == "")
-                throw new Data.EmptyFieldException();
+                throw new Exceptions.EmptyField();
             if (Password != PasswordCheck)
-                throw new Data.PasswordsDontMatchException();
+                throw new Exceptions.PasswordsMismatch();
             if (!Regex.IsMatch(Email, @"^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$"))
-                throw new Data.NotEmailException();
+                throw new Exceptions.NotEmail();
             using (HttpClient client = new HttpClient())
             {
-                HttpResponseMessage response = await client.PostAsync($"{url}/api/login", new FormUrlEncodedContent(new Dictionary<string, string>
+                HttpResponseMessage response = await client.PostAsync($"{url}/api/register", new FormUrlEncodedContent(new Dictionary<string, string>
                 {
                     { "email", Email },
                     { "login", Login },
@@ -40,18 +40,16 @@ namespace transnfc_v4.Model
                     dynamic data = JsonConvert.DeserializeObject(await response.Content.ReadAsStringAsync());
                     if (data.success)
                     {
-                        return new Data.UserData(data.email, data.login, data.pwd, data.first, data.last, data.id);
+                        return new Data.User(data.email, data.login, data.pwd, data.first, data.last, data.id);
                     }
                     else
                     {
                         switch (data.message)
                         {
-                            case "lastname taken":
-                                throw new Data.AlreadyTakenLastNameException();
-                            case "firstname taken":
-                                throw new Data.AlreadyTakenFirstNameException();
+                            case "login taken":
+                                throw new Exceptions.LoginAlreadyTaken();
                             case "email taken":
-                                throw new Data.AlreadyTakenEmailException();
+                                throw new Exceptions.EmailAlreadyTaken();
                         }
                     }
                 }
