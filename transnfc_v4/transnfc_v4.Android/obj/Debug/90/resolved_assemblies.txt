@@ -1,8 +1,10 @@
 C:\repos\transnfc_4\transnfc_v4\transnfc_v4.Android\obj\Debug\90\android\assets\transnfc_v4.Android.dll
 C:\repos\transnfc_4\transnfc_v4\transnfc_v4.Android\obj\Debug\90\android\assets\FormsViewGroup.dll
 C:\repos\transnfc_4\transnfc_v4\transnfc_v4.Android\obj\Debug\90\android\assets\Java.Interop.dll
+C:\repos\transnfc_4\transnfc_v4\transnfc_v4.Android\obj\Debug\90\android\assets\Microsoft.CSharp.dll
 C:\repos\transnfc_4\transnfc_v4\transnfc_v4.Android\obj\Debug\90\android\assets\Mono.Android.dll
 C:\repos\transnfc_4\transnfc_v4\transnfc_v4.Android\obj\Debug\90\android\assets\mscorlib.dll
+C:\repos\transnfc_4\transnfc_v4\transnfc_v4.Android\obj\Debug\90\android\assets\Newtonsoft.Json.dll
 C:\repos\transnfc_4\transnfc_v4\transnfc_v4.Android\obj\Debug\90\android\assets\System.Core.dll
 C:\repos\transnfc_4\transnfc_v4\transnfc_v4.Android\obj\Debug\90\android\assets\System.dll
 C:\repos\transnfc_4\transnfc_v4\transnfc_v4.Android\obj\Debug\90\android\assets\System.Numerics.dll
@@ -58,11 +60,11 @@ C:\repos\transnfc_4\transnfc_v4\transnfc_v4.Android\obj\Debug\90\android\assets\
 C:\repos\transnfc_4\transnfc_v4\transnfc_v4.Android\obj\Debug\90\android\assets\System.Drawing.Common.dll
 C:\repos\transnfc_4\transnfc_v4\transnfc_v4.Android\obj\Debug\90\android\assets\System.Runtime.Serialization.dll
 C:\repos\transnfc_4\transnfc_v4\transnfc_v4.Android\obj\Debug\90\android\assets\System.ServiceModel.Internals.dll
-C:\repos\transnfc_4\transnfc_v4\transnfc_v4.Android\obj\Debug\90\android\assets\Mono.Security.dll
-C:\repos\transnfc_4\transnfc_v4\transnfc_v4.Android\obj\Debug\90\android\assets\System.ComponentModel.Composition.dll
 C:\repos\transnfc_4\transnfc_v4\transnfc_v4.Android\obj\Debug\90\android\assets\netstandard.dll
 C:\repos\transnfc_4\transnfc_v4\transnfc_v4.Android\obj\Debug\90\android\assets\System.Data.dll
 C:\repos\transnfc_4\transnfc_v4\transnfc_v4.Android\obj\Debug\90\android\assets\System.Transactions.dll
 C:\repos\transnfc_4\transnfc_v4\transnfc_v4.Android\obj\Debug\90\android\assets\System.IO.Compression.dll
 C:\repos\transnfc_4\transnfc_v4\transnfc_v4.Android\obj\Debug\90\android\assets\System.IO.Compression.FileSystem.dll
+C:\repos\transnfc_4\transnfc_v4\transnfc_v4.Android\obj\Debug\90\android\assets\System.ComponentModel.Composition.dll
 C:\repos\transnfc_4\transnfc_v4\transnfc_v4.Android\obj\Debug\90\android\assets\System.Web.Services.dll
+C:\repos\transnfc_4\transnfc_v4\transnfc_v4.Android\obj\Debug\90\android\assets\Mono.Security.dll

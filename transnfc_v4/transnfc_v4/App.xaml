@@ -10,6 +10,8 @@
     <Application.Resources>
         <ResourceDictionary>
 
+            <x:String x:Key="url">http://www.transnfc.com/</x:String>
+            
             <Color x:Key="blue0">#277db6</Color>
             <Color x:Key="blue1">#193058</Color>
             <Color x:Key="grey0">#6d6d6d</Color>

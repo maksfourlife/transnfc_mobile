@@ -10,17 +10,24 @@
         <ScrollView>
             <StackLayout>
                 <Image Style="{StaticResource ImageBigLogo}"/>
-                <Entry Placeholder="Имя"/>
-                <Entry Placeholder="Фамилия"/>
-                <Entry Placeholder="Почта"/>
-                <Entry Placeholder="Логин"/>
-                <Entry Placeholder="Пароль"/>
-                <Entry Placeholder="Повторите пароль"/>
+                <Entry Text="{Binding FirstName}"
+                       Placeholder="Имя"/>
+                <Entry Text="{Binding LastName}"
+                       Placeholder="Фамилия"/>
+                <Entry Text="{Binding Email}"
+                       Placeholder="Email"/>
+                <Entry Text="{Binding Login}"
+                       Placeholder="Логин"/>
+                <Entry Text="{Binding Password}"
+                       Placeholder="Пароль"/>
+                <Entry Text="{Binding PasswordCheck}"
+                       Placeholder="Повторите пароль"/>
                 <Label Style="{StaticResource UnderEntryNotationLabel}"
                        Text="*Нажимая кнопку далее, вы даете согласие на обработку ваших персональных данных."/>
                 <yummy:PancakeView Style="{StaticResource ElevatingButton}">
                     <Button Style="{StaticResource ElevatingButtonInner}"
-                                Text="Далее"/>
+                            Command="{Binding Register}"
+                            Text="Далее"/>
                 </yummy:PancakeView>
                 <Label Style="{StaticResource UnderButtonLabel}"
                            Text="Войти">
