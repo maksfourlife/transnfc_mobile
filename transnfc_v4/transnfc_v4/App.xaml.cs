@@ -10,7 +10,15 @@ namespace transnfc_v4
         {
             InitializeComponent();
 
-            MainPage = new View.Login();
+            if (Current.Properties.ContainsKey("id") &&
+               Current.Properties.ContainsKey("email") &&
+                Current.Properties.ContainsKey("login") &&
+                Current.Properties.ContainsKey("pwd") &&
+                Current.Properties.ContainsKey("first") &&
+                Current.Properties.ContainsKey("last"))
+                MainPage = new View.Master();
+            else
+                MainPage = new View.Login();
         }
     }
 }

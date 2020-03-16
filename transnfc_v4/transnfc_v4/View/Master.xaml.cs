@@ -16,12 +16,13 @@ namespace transnfc_v4.View
         {
             InitializeComponent();
 
-            BindingContext = new ViewModel.Master(NewPageSelected);
+            //BindingContext = new ViewModel.Master(NewPageSelected);
+            BindingContext = new ViewModel.Master(this);
 
             SetPage(new Main());
         }
 
-        void NewPageSelected(string page_name)
+        private void NewPageSelected(string page_name)
         {
             switch (page_name)
             {
@@ -37,12 +38,22 @@ namespace transnfc_v4.View
                 case "Feedback":
                     SetPage(new Feedback());
                     return;
-                default:
-                    throw new NotImplementedException();
+                case "Exit":
+                    Exit();
+                    return;
             }
         }
 
-        void SetPage(Page page)
+        private void Exit()
+        {
+            string[] keys = { "id", "login", "email", "pwd", "first", "last" };
+            foreach (string key in keys)
+                Application.Current.Properties.Remove(key);
+            Application.Current.SavePropertiesAsync();
+            Application.Current.MainPage = new Login();
+        }
+
+        private void SetPage(Page page)
         {
             Detail = new NavigationPage(page)
             {

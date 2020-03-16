@@ -55,6 +55,8 @@
                                            CommandParameter="Feedback"
                                            Text="Обратная связь"/>
                         <UIElements:Button Style="{StaticResource TabButton}"
+                                           Command="{Binding NewPageSelected}"
+                                           CommandParameter="Exit"
                                            Text="Выход"/>
                     </StackLayout>
                 </StackLayout>

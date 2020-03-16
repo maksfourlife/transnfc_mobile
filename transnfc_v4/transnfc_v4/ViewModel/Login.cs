@@ -33,10 +33,11 @@ namespace transnfc_v4.ViewModel
                     {
                         Application.Current.Properties["id"] = data.Id;
                         Application.Current.Properties["login"] = data.Login;
-                        Application.Current.Properties["pws"] = data.Password;
+                        Application.Current.Properties["pwd"] = data.Password;
                         Application.Current.Properties["first"] = data.FirstName;
                         Application.Current.Properties["last"] = data.LastName;
                         Application.Current.Properties["email"] = data.Email;
+                        await Application.Current.SavePropertiesAsync();
                         Application.Current.MainPage = new View.Master();
                     }
                 }
@@ -44,14 +45,14 @@ namespace transnfc_v4.ViewModel
                 {
                     if (e is Exceptions.EmptyField)
                         await mention_about_error("Одно или несколько полей пусты");
-                    else if (e is Exceptions.LoginNotFound)
-                        await mention_about_error("Пользователь с данным логином не найден");
                     else if (e is Exceptions.NotEmail)
-                        await mention_about_error("Пользователь с данной почтой не найден");
+                        await mention_about_error("Пожалуйста, введите корректную почту");
+                    else if (e is Exceptions.LoginEmailNotFound)
+                        await mention_about_error("Пользователь с данным логином или почтой не найден");
                     else if (e is Exceptions.InccorrectPassword)
                         await mention_about_error("Неверный пароль");
                     else
-                        await mention_about_error($"Неизвестная ошибка - {e.Message}");
+                        await mention_about_error($"Неизвестная ошибка - {e}\n\n {e.Message}");
                 }
             });
         }

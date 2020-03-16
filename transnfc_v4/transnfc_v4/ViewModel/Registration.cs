@@ -33,7 +33,7 @@ namespace transnfc_v4.ViewModel
                     {
                         Application.Current.Properties["id"] = data.Id;
                         Application.Current.Properties["login"] = data.Login;
-                        Application.Current.Properties["pws"] = data.Password;
+                        Application.Current.Properties["pwd"] = data.Password;
                         Application.Current.Properties["first"] = data.FirstName;
                         Application.Current.Properties["last"] = data.LastName;
                         Application.Current.Properties["email"] = data.Email;

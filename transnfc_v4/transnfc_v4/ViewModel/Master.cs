@@ -14,6 +14,46 @@ namespace transnfc_v4.ViewModel
             NewPageSelected = new Command<string>(new_page_selected);
         }
 
+        public Master(MasterDetailPage master)
+        {
+            Action<Page> set_page = page =>
+            {
+                master.Detail = new NavigationPage(page)
+                {
+                    BarBackgroundColor = (Color)Application.Current.Resources["blue1"],
+                };
+                master.IsPresented = false;
+            };
+
+            NewPageSelected = new Command<string>(page_name =>
+            {
+                switch (page_name)
+                {
+                    case "Main":
+                        set_page(new View.Main());
+                        return;
+                    case "Wallet":
+                        set_page(new View.Wallet());
+                        return;
+                    case "Settings":
+                        set_page(new View.Settings());
+                        return;
+                    case "Feedback":
+                        set_page(new View.Feedback());
+                        return;
+                    case "Exit":
+                        string[] keys = { "id", "login", "email", "pwd", "first", "last" };
+                        foreach (string key in keys)
+                            Application.Current.Properties.Remove(key);
+                        Application.Current.SavePropertiesAsync();
+                        Application.Current.MainPage = new View.Login();
+                        return;
+                }
+            });
+
+            set_page(new View.Main());
+        }
+
         public Command<string> NewPageSelected { private set; get; }
 
         public event PropertyChangedEventHandler PropertyChanged;

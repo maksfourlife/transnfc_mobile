@@ -20,23 +20,21 @@ namespace transnfc_v4.Model
             {
                 HttpResponseMessage response = await client.PostAsync($"{url}/api/login", new FormUrlEncodedContent(new Dictionary<string, string>
                 {
-                    { "login_or_email", LoginOrEmail },
+                    { "login_email", LoginOrEmail },
                     { "pwd", Password }
                 }));
                 if (response.IsSuccessStatusCode)
                 {
                     dynamic data = JsonConvert.DeserializeObject(await response.Content.ReadAsStringAsync());
-                    if (data.success)
+                    if ((bool)data.success)
                     {
-                        return new Data.User(data.email, data.login, data.pwd, data.first, data.last, data.id);
+                        return new Data.User((string)data.email, (string)data.login, (string)data.pwd, (string)data.first, (string)data.last, (int)data.id);
                     }
-                    switch (data.message)
+                    switch ((string)data.message)
                     {
-                        case "login not found":
-                            throw new Exceptions.LoginNotFound();
-                        case "email not found":
-                            throw new Exceptions.EmailNotFound();
-                        case "incorrect pwd":
+                        case "No such login or email":
+                            throw new Exceptions.LoginEmailNotFound();
+                        case "Incorrect password":
                             throw new Exceptions.InccorrectPassword();
                     }
                 }

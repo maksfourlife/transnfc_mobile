@@ -15,6 +15,11 @@
                                   Margin="0,30,0,20"
                                   Underline="Normal"
                                   CursorVisible="True"/>
+                <Editor WidthRequest="{StaticResource width_request}"
+                        HeightRequest="100"
+                        VerticalOptions="Center"
+                        HorizontalOptions="Center"
+                        Placeholder="Опишите проблему"/>
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>
