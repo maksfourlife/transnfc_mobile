@@ -37,6 +37,7 @@ namespace transnfc_v4.ViewModel
                         Application.Current.Properties["first"] = data.FirstName;
                         Application.Current.Properties["last"] = data.LastName;
                         Application.Current.Properties["email"] = data.Email;
+                        await Application.Current.SavePropertiesAsync();
                         Application.Current.MainPage = new View.Master();
                     }
                 }

@@ -38,17 +38,17 @@ namespace transnfc_v4.Model
                 if (response.IsSuccessStatusCode)
                 {
                     dynamic data = JsonConvert.DeserializeObject(await response.Content.ReadAsStringAsync());
-                    if (data.success)
+                    if ((bool)data.success)
                     {
-                        return new Data.User(data.email, data.login, data.pwd, data.first, data.last, data.id);
+                        return new Data.User(Email, Login, Password, FirstName, LastName, (int)data.id);
                     }
                     else
                     {
-                        switch (data.message)
+                        switch ((string)data.message)
                         {
-                            case "login taken":
+                            case "Login already taken":
                                 throw new Exceptions.LoginAlreadyTaken();
-                            case "email taken":
+                            case "Email already taken":
                                 throw new Exceptions.EmailAlreadyTaken();
                         }
                     }

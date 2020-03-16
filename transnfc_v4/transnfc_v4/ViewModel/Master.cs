@@ -9,11 +9,6 @@ namespace transnfc_v4.ViewModel
 {
     class Master : INotifyPropertyChanged
     {
-        public Master(Action<string> new_page_selected)
-        {
-            NewPageSelected = new Command<string>(new_page_selected);
-        }
-
         public Master(MasterDetailPage master)
         {
             Action<Page> set_page = page =>
