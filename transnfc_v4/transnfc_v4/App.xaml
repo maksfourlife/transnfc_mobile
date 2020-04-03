@@ -10,7 +10,8 @@
     <Application.Resources>
         <ResourceDictionary>
 
-            <x:String x:Key="url">http://10.0.2.2:5000</x:String>
+            <!--<x:String x:Key="url">http://10.0.2.2:5000</x:String>-->
+            <x:String x:Key="url">https://www.transnfc.com</x:String>
             
             <Color x:Key="blue0">#277db6</Color>
             <Color x:Key="blue1">#193058</Color>

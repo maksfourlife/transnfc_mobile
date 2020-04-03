@@ -31,12 +31,7 @@ namespace transnfc_v4.ViewModel
                     Data.User data = await _model.LogIn(Application.Current.Resources["url"] as string);
                     if (data != null)
                     {
-                        Application.Current.Properties["id"] = data.Id;
-                        Application.Current.Properties["login"] = data.Login;
-                        Application.Current.Properties["pwd"] = data.Password;
-                        Application.Current.Properties["first"] = data.FirstName;
-                        Application.Current.Properties["last"] = data.LastName;
-                        Application.Current.Properties["email"] = data.Email;
+                        data.Bind(Application.Current.Properties);
                         await Application.Current.SavePropertiesAsync();
                         Application.Current.MainPage = new View.Master();
                     }

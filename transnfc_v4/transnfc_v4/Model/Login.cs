@@ -25,7 +25,8 @@ namespace transnfc_v4.Model
                 }));
                 if (response.IsSuccessStatusCode)
                 {
-                    dynamic data = JsonConvert.DeserializeObject(await response.Content.ReadAsStringAsync());
+                    string content = await response.Content.ReadAsStringAsync();
+                    dynamic data = JsonConvert.DeserializeObject(content);
                     if ((bool)data.success)
                     {
                         return new Data.User((string)data.email, (string)data.login, (string)data.pwd, (string)data.first, (string)data.last, (int)data.id);

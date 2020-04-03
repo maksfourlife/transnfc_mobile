@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -10,15 +11,16 @@ namespace transnfc_v4
         {
             InitializeComponent();
 
-            if (Current.Properties.ContainsKey("id") &&
-               Current.Properties.ContainsKey("email") &&
-                Current.Properties.ContainsKey("login") &&
-                Current.Properties.ContainsKey("pwd") &&
-                Current.Properties.ContainsKey("first") &&
-                Current.Properties.ContainsKey("last"))
+            string[] keys = new string[] { "id", "email", "login", "pwd", "first", "last" };
+            if (Array.TrueForAll(keys, new Predicate<string>(key =>
+                Current.Properties.ContainsKey(key))))
+            {
                 MainPage = new View.Master();
+            }
             else
+            {
                 MainPage = new View.Login();
+            }
         }
     }
 }

@@ -22,5 +22,15 @@ namespace transnfc_v4.Data
             LastName = last_name;
             Id = id;
         }
+
+        public void Bind(IDictionary<string, object> properties)
+        {
+            properties["id"] = Id;
+            properties["email"] = Email;
+            properties["pwd"] = Password;
+            properties["first"] = FirstName;
+            properties["last"] = LastName;
+            properties["login"] = Login;
+        }
     }
 }
