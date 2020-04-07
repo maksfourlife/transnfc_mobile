@@ -17,6 +17,9 @@ namespace transnfc_v4.Droid
     class TagScanner : ITagScanner
     {
         internal static Action<byte[]> _on_result;
+
+        public bool NfcAvaible => MainActivity._nfc_avaible;
+
         public void Scan(Action<byte[]> on_result)
         {
             MainActivity._do_scanning = true;

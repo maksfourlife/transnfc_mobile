@@ -39,6 +39,8 @@ namespace transnfc_v4.Model
                             throw new Exceptions.InccorrectPassword();
                     }
                 }
+                else
+                    throw new Exception($"Проблема с подключением - {response.ReasonPhrase}");
             }
             return null;
         }

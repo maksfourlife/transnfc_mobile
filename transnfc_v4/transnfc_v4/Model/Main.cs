@@ -1,26 +1,92 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Net.Http;
 using System.Text;
+using Xamarin.Forms;
+using Newtonsoft.Json;
+using System.Threading.Tasks;
 
 namespace transnfc_v4.Model
 {
     class Main
     {
-        public List<Data.Payment> PaymentList { get; set; }
-        public string Wallet;
-        public bool CoverShown;
+        public List<Data.Payment> PaymentList { get; set; } = new List<Data.Payment>();
+        public string Wallet = "0";
+        public bool Processing = false;
+        public bool NoRecent = true;
 
-        public Main()
+        public async Task LoadPayments(int user_id, int amount = 4)
         {
-            CoverShown = false;
-            Wallet = "43";
-            PaymentList = new List<Data.Payment>
+            PaymentList.Clear();
+            using (HttpClient client = new HttpClient())
             {
-                new Data.Payment(DateTime.Now, "1A", 60),
-                new Data.Payment(DateTime.Now, "1A", 60),
-                new Data.Payment(DateTime.Now, "1A", 60),
-                new Data.Payment(DateTime.Now, "1A", 60),
-            };
+                HttpResponseMessage res = await client.PostAsync($"{Application.Current.Resources["url"]}/api/get_payments",
+                    new FormUrlEncodedContent(new Dictionary<string, string>
+                    {
+                        { "id", user_id.ToString() },
+                        { "amount", amount.ToString() }
+                    }));
+                if (res.IsSuccessStatusCode)
+                {
+                    Dictionary<string, dynamic> content = JsonConvert.DeserializeObject<Dictionary<string, dynamic>>(
+                        await res.Content.ReadAsStringAsync());
+                    if (!(bool)content["success"])
+                        throw new Exception(content["message"] as string);
+                    if (content["payments"].Count > 0)
+                        NoRecent = false;
+                    for (int i = 0; i < content["payments"].Count; i++)
+                    {
+                        dynamic payment = JsonConvert.DeserializeObject(content["message"][i]);
+                        PaymentList.Add(new Data.Payment(Data.Convert.FromPython(payment.time), payment.route, payment.amount));
+                    }
+                }
+            }
+        }
+
+        public async Task LoadWallet(int user_id)
+        {
+            using (HttpClient client = new HttpClient())
+            {
+                HttpResponseMessage res = await client.PostAsync($"{Application.Current.Resources["url"]}/api/get_wallet",
+                    new FormUrlEncodedContent(new Dictionary<string, string>
+                    {
+                        { "id", user_id.ToString() }
+                    }));
+                if (res.IsSuccessStatusCode)
+                {
+                    Dictionary<string, dynamic> content = JsonConvert.DeserializeObject<Dictionary<string, dynamic>>(await res.Content.ReadAsStringAsync());
+                    if (!(bool)content["success"])
+                        throw new Exception(content["message"] as string);
+                    long wallet = content["wallet"];
+                    Wallet = wallet.ToString();
+                }
+            }
+        }
+
+        public async Task Pay(int user_id, Action<bool> finished)
+        {
+            DependencyService.Get<ITagScanner>().Scan(async (byte[] data) =>
+            {
+                if (data == null)
+                    throw new Exception("Unable to read tag");
+                using (HttpClient client = new HttpClient())
+                {
+                    HttpResponseMessage res = await client.PostAsync($"{Application.Current.Resources["url"]}/api/pay",
+                    new FormUrlEncodedContent(new Dictionary<string, string>
+                    {
+                        { "id", user_id.ToString() },
+                        { "key", Data.Convert.HexFromBytes(data) }
+                    }));
+                    if (res.IsSuccessStatusCode)
+                    {
+                        Dictionary<string, dynamic> content = JsonConvert.DeserializeObject<Dictionary<string, dynamic>>(await res.Content.ReadAsStringAsync());
+                        if (!(bool)content["success"])
+                            throw new Exception(content["message"] as string);
+                        finished(true);
+                    }
+                }
+            });
+            finished(false);
         }
     }
 }

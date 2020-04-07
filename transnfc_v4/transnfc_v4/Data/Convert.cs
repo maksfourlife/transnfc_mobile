@@ -45,5 +45,20 @@ namespace transnfc_v4.Data
                 return s;
             return '0' + s;
         }
+
+        public static DateTime FromPython(double timestamp)
+        {
+            return new DateTime(1970, 1, 1, 0, 0, 0).AddSeconds(timestamp).ToLocalTime();
+        }
+
+        public static string HexFromBytes(byte[] data)
+        {
+            string res = "";
+            Array.ForEach(data, b =>
+            {
+                res += b.ToString("X2");
+            });
+            return res;
+        }
     }
 }

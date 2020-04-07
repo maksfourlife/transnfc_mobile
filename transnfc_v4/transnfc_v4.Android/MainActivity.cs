@@ -18,7 +18,7 @@ namespace transnfc_v4.Droid
         internal static NfcAdapter _nfc_adapter;
         private static PendingIntent _pending_intent;
         private static IntentFilter[] _filters;
-        private static bool _nfc_avaible;
+        internal static bool _nfc_avaible;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -42,7 +42,7 @@ namespace transnfc_v4.Droid
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
             LoadApplication(new App());
         }
-        public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)
+        public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Permission[] grantResults)
         {
             Xamarin.Essentials.Platform.OnRequestPermissionsResult(requestCode, permissions, grantResults);
 
@@ -83,14 +83,12 @@ namespace transnfc_v4.Droid
                         {
                             TagScanner._on_result(record.GetPayload());
                             _do_scanning = false;
+                            return;
                         }
                     }
                 }
-                else
-                {
-                    TagScanner._on_result(null);
-                }
             }
+            TagScanner._on_result(null);
         }
     }
 }
