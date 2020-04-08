@@ -63,30 +63,39 @@ namespace transnfc_v4.Model
             }
         }
 
-        public async Task Pay(int user_id, Action<bool> finished)
+        public void Pay(int user_id, Action<bool> finished)
         {
+            bool success = false;
             DependencyService.Get<ITagScanner>().Scan(async (byte[] data) =>
             {
                 if (data == null)
                     throw new Exception("Unable to read tag");
-                using (HttpClient client = new HttpClient())
+                else
                 {
-                    HttpResponseMessage res = await client.PostAsync($"{Application.Current.Resources["url"]}/api/pay",
-                    new FormUrlEncodedContent(new Dictionary<string, string>
+                    string _data = Data.Convert.HexFromBytes(data).ToLower();
+                    using (HttpClient client = new HttpClient())
                     {
-                        { "id", user_id.ToString() },
-                        { "key", Data.Convert.HexFromBytes(data) }
-                    }));
-                    if (res.IsSuccessStatusCode)
-                    {
-                        Dictionary<string, dynamic> content = JsonConvert.DeserializeObject<Dictionary<string, dynamic>>(await res.Content.ReadAsStringAsync());
-                        if (!(bool)content["success"])
-                            throw new Exception(content["message"] as string);
-                        finished(true);
+                        HttpResponseMessage res = await client.PostAsync($"{Application.Current.Resources["url"]}/api/pay",
+                        new FormUrlEncodedContent(new Dictionary<string, string>
+                        {
+                            { "id", user_id.ToString() },
+                            { "key", _data }
+                        }));
+                        if (res.IsSuccessStatusCode)
+                        {
+                            Dictionary<string, dynamic> content = JsonConvert.DeserializeObject<Dictionary<string, dynamic>>(await res.Content.ReadAsStringAsync());
+                            if (!(bool)content["success"])
+                                throw new Exception(content["message"] as string);
+                            success = true;
+                        }
+                        else
+                        {
+                            throw new Exception($"Проблема с подключением - {await res.Content.ReadAsStringAsync()}");
+                        }
                     }
                 }
+                finished(success);
             });
-            finished(false);
         }
     }
 }

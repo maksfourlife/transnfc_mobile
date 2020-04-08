@@ -8,7 +8,7 @@
              xmlns:yummy="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
              Title="Оплата">
     <ContentPage.Content>
-        <ScrollView IsEnabled="True">
+        <ScrollView IsEnabled="{Binding NotProcessing}">
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
@@ -52,11 +52,18 @@
                 <Frame Style="{StaticResource MainCover}"
                        Grid.Column="0"
                        Grid.Row="0"
-                       IsVisible="False">
-                    <ActivityIndicator Color="White"
-                                       IsRunning="True"
-                                       WidthRequest="50"
-                                       HorizontalOptions="Center"/>
+                       IsVisible="{Binding Processing}">
+                    <StackLayout HorizontalOptions="Center"
+                                 VerticalOptions="Center">
+                        <ActivityIndicator Color="White"
+                                           IsRunning="True"
+                                           WidthRequest="50"
+                                           HorizontalOptions="Center"/>
+                        <Label Text="Оплата..."
+                               TextColor="White"
+                               HorizontalOptions="Center"
+                               Margin="0,10,0,0"/>
+                    </StackLayout>
                 </Frame>
             </Grid>
         </ScrollView>

@@ -12,12 +12,34 @@ namespace transnfc_v4.ViewModel
     class Main : INotifyPropertyChanged
     {
         private Model.Main Data;
-        private ICommand Pay;
+        public ICommand Pay { get; }
 
         public Main()
         {
             int user_id = (int)Application.Current.Properties["id"];
             Data = new Model.Main();
+            Update(user_id);
+            Pay = new Command(() =>
+            {
+                Processing = true;
+                Data.Pay(user_id, async (bool success) =>
+                {
+                    if (success)
+                    {
+                        Update(user_id);
+                        await Application.Current.MainPage.DisplayAlert("Успешно!", "Оплата произведена", "Ок");
+                    }
+                    else
+                    {
+                        await Application.Current.MainPage.DisplayAlert("Ошибка!", "Не получилось произвести оплату", "Ок");
+                    }
+                    Processing = false;
+                });
+            }, () => DependencyService.Get<ITagScanner>().NfcAvaible);
+        }
+
+        private void Update(int user_id)
+        {
             Task.Run(async () =>
             {
                 await Data.LoadPayments(user_id);
@@ -29,10 +51,6 @@ namespace transnfc_v4.ViewModel
                 await Data.LoadWallet(user_id);
                 OnPropertyChanged("Wallet");
             });
-            Pay = new Command(async () =>
-            {
-                OnPropertyChanged("")
-            }, () => DependencyService.Get<ITagScanner>().NfcAvaible);
         }
 
         public bool NoRecent
@@ -52,7 +70,13 @@ namespace transnfc_v4.ViewModel
             {
                 Data.Processing = value;
                 OnPropertyChanged();
+                OnPropertyChanged("NotProcessing");
             }
+        }
+
+        public bool NotProcessing
+        {
+            get { return !Data.Processing; }
         }
 
         public List<Data.Payment> PaymentList
